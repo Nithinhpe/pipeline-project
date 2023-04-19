@@ -4,6 +4,8 @@ echo "***************************"
 echo "** Building jar ***********"
 echo "***************************"
 
-WORKSPACE=/var/jenkins_home/workspace/pipeline-docker-maven/java-app
 echo "$WORKSPACE"
-docker run --rm  -v  $WORKSPACE:/app -v /root/.m2/:/root/.m2/ -w /app maven:3-alpine "$@"
+/usr/bin/docker login -u nithinhpe -p Nithin@1271
+docker run --rm  -v  $WORKSPACE/java-app:/app -v /root/.m2/:/root/.m2/ -w /app maven:3-alpine "$@"
+docker logout
+              
